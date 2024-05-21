@@ -1,3 +1,6 @@
+import { API_URI } from "@/constants/API";
+import axios from "axios";
+import { useState } from "react";
 import {
   Text,
   View,
@@ -12,12 +15,32 @@ import {
 } from "react-native-gesture-handler";
 
 export default function HomeScreen() {
+  
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleUsername = (event: any) => {
+    setUsername(event);
+  }
+
+  const handlePassword = (event: any) => {
+    setPassword(event);
+  }
+
   const handleSignup = () => {
     return alert(1);
   };
+
   const handleLogin = () => {
-    return alert(2);
+    axios.post(API_URI + "/accounts/login/", {username: username, password: password})
+      .then((res: any) => {
+        alert(res.data.message);
+      })
+      .catch(err => {
+        alert(err.message)
+      });
   };
+
   if (Platform.OS === "web") {
     return (
       <GestureHandlerRootView style={styles.container}>
@@ -27,8 +50,8 @@ export default function HomeScreen() {
         </View>
         <View>
           <View style={styles.loginBox}>
-            <TextInput style={styles.loginItem} placeholder="Email" />
-            <TextInput style={styles.loginItem} placeholder="Password" />
+            <TextInput style={styles.loginItem} placeholder="Username" onChangeText={handleUsername} value={username}/>
+            <TextInput style={styles.loginItem} placeholder="Password" onChangeText={handlePassword} value={password}/>
             <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
               <Text style={styles.buttonText}> Login </Text>
             </TouchableOpacity>
