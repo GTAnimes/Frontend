@@ -4,10 +4,10 @@ import { View, Text, StyleSheet } from 'react-native';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text> Welcome to GTAnime !!</Text>
+      <Text> This is Main !!</Text>
       <View style={styles.box}>
 
-      <Link href="/(main)"> Login </Link>
+        
         <Link href="/SignUp"> Register </Link>
       </View>
 

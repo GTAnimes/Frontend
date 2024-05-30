@@ -12,8 +12,9 @@ export default function HomeLayout() {
           fontWeight: 'bold',
         },
       }}>
-      <Stack.Screen name="index" />
-      <Stack.Screen name="SignUp" />
+      <Stack.Screen name="index" options={{headerShown: false}}/>
+      <Stack.Screen name="SignUp" options={{headerTitle: "Register"}}/>
+      <Stack.Screen name="(main)"/>
     </Stack>
   );
 }
