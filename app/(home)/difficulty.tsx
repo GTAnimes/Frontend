@@ -6,7 +6,7 @@ export default function DifficultyScreen() {
     <View style={styles.container}>
       <PlayButton
         description="Trend Anime, Top 400 MAL"
-        link=""
+        link="/gamescreen"
         pText="EZ"
         title="Easy"
         bgColor="#2D882D"

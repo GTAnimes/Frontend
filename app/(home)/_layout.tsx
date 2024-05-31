@@ -1,14 +1,18 @@
 import { Stack } from "expo-router";
-import { addAnime } from "@/redux/anime/actionCreators";
+import { addAnime, setAnimeList } from "@/redux/anime/actionCreators";
 import { selectAnime } from "@/redux/reducer";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Text, View } from "react-native";
 
 export default function HomeLayout() {
   const anime = useSelector(selectAnime);
   const dispatch = useDispatch();
   useEffect(() => {
+    // if(anime.length > 0) {
+    //   dispatch(setAnimeList([]))
+    // }
     if (anime.length < 4000) {
       setTimeout(() => {
         axios
@@ -31,9 +35,17 @@ export default function HomeLayout() {
           .catch((error) => {
             alert(error);
           });
-      }, 1000);
+      }, 100);
     }
   }, [anime]);
+
+  if (anime.length < 4000) {
+    return (
+      <View>
+        <Text>Please Wait. {(anime.length * 100) / 4000} %</Text>
+      </View>
+    );
+  }
 
   return (
     <Stack
@@ -59,7 +71,10 @@ export default function HomeLayout() {
           headerTitleStyle: { fontWeight: "500" },
         }}
       />
-      <Stack.Screen name="gamescreen" options={{ headerShown: false }} />
+      <Stack.Screen
+        name="gamescreen"
+        options={{ headerShown: false }}
+      />
       <Stack.Screen name="(main)" options={{ headerShown: false }} />
     </Stack>
   );
