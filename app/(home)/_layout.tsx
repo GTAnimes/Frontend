@@ -1,5 +1,5 @@
 import { Stack } from 'expo-router';
-import { addAnime } from '@/redux/anime/actionCreators';
+import { addAnime, setAnimeList } from '@/redux/anime/actionCreators';
 import { selectAnime } from '@/redux/reducer';
 import axios from 'axios';
 import { useEffect } from 'react';
@@ -9,11 +9,20 @@ export default function HomeLayout() {
   const anime = useSelector(selectAnime);
   const dispatch = useDispatch();
   useEffect(() => {
-    if (anime.length < 1000) {
+    if (anime.length < 4000) {
       setTimeout(() => {
         axios.get("https://api.jikan.moe/v4/anime?q=&sort=desc&order_by=score&page=" + (anime.length / 25 + 1))
           .then(res => {
-            dispatch(addAnime(res.data.data));
+            let newAnime = []
+            for (let i = 0; i < res.data.data.length; i++) {
+              const animeData = {
+                mal_id: res.data.data[i].mal_id,
+                title: res.data.data[i].title,
+                members: res.data.data[i].members
+              }
+              newAnime.push(animeData);
+            }
+            dispatch(addAnime(newAnime));
           })
           .catch(error => {
             alert(error)
@@ -21,6 +30,7 @@ export default function HomeLayout() {
       }, 500);
     }
   }, [anime])
+  console.log(anime);
 
   return (
     <Stack
