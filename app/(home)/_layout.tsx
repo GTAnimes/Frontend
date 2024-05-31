@@ -9,7 +9,7 @@ export default function HomeLayout() {
   const anime = useSelector(selectAnime);
   const dispatch = useDispatch();
   useEffect(() => {
-    if (anime.length < 1000) {
+    if (anime.length < 4000) {
       setTimeout(() => {
         axios
           .get(
@@ -17,7 +17,16 @@ export default function HomeLayout() {
               (anime.length / 25 + 1)
           )
           .then((res) => {
-            dispatch(addAnime(res.data.data));
+            let newAnime = [];
+            for (let i = 0; i < res.data.data.length; i++) {
+              const animeData = {
+                mal_id: res.data.data[i].mal_id,
+                title: res.data.data[i].title,
+                members: res.data.data[i].members,
+              };
+              newAnime.push(animeData);
+            }
+            dispatch(addAnime(newAnime));
           })
           .catch((error) => {
             alert(error);
@@ -25,6 +34,7 @@ export default function HomeLayout() {
       }, 1000);
     }
   }, [anime]);
+
   return (
     <Stack
       screenOptions={{
