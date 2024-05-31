@@ -3,7 +3,7 @@ import { RootState } from "./store";
 export const selectUser = (state: RootState) => state.user;
 export const selectAnime = (state: RootState) => state.anime;
 export const selectKnownAnime = (state: RootState) => state.anime.filter(anime => anime.members > 170000);
-export const selectUsableAnime = (state: RootState) => {
+export const selectFirstAiringAnime = (state: RootState) => {
     const check = state.anime.filter(anime => anime.members > 170000);
     let anime = []
     for (let i = 0; i < check.length; i++) {
