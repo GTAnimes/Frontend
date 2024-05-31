@@ -6,7 +6,7 @@ export const setAnimeList = (animeList: Anime[]): AnimeActionTypes => ({
   payload: animeList,
 });
 
-export const addAnime = (anime: Anime): AnimeActionTypes => ({
+export const addAnime = (anime: Anime[]): AnimeActionTypes => ({
   type: ADD_ANIME,
   payload: anime,
 });

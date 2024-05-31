@@ -9,7 +9,7 @@ interface SetAnimeListAction {
 
 interface AddAnimeAction {
   type: typeof ADD_ANIME;
-  payload: Anime;
+  payload: Anime[];
 }
 
 export type AnimeActionTypes = SetAnimeListAction | AddAnimeAction;
