@@ -6,8 +6,6 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <Text> This is Setting !!</Text>
       <View style={styles.box}>
-
-        
         <Link href="/SignUp"> Register </Link>
       </View>
 

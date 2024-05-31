@@ -32,6 +32,7 @@ export default function HomeLayout() {
         headerTitleStyle: {
           fontWeight: 'bold',
         },
+        headerShown: false
       }}>
       <Stack.Screen name="index" options={{headerShown: false}}/>
       <Stack.Screen name="SignUp" options={{headerTitle: "Register"}}/>
