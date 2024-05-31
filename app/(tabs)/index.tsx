@@ -1,8 +1,6 @@
 import { API_URI } from "@/constants/API";
-import { addAnime, setAnimeList } from "@/redux/anime/actionCreators";
-import { selectAnime, selectKnownAnime, selectUsableAnime } from "@/redux/reducer";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Text,
   View,
@@ -15,13 +13,11 @@ import {
   GestureHandlerRootView,
   TextInput,
 } from "react-native-gesture-handler";
-import { useDispatch, useSelector } from "react-redux";
 
 export default function HomeScreen() {
+  
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
-  const anime = useSelector(selectAnime);
 
   const handleUsername = (event: any) => {
     setUsername(event);
@@ -34,20 +30,6 @@ export default function HomeScreen() {
   const handleSignup = () => {
     return alert(1);
   };
-
-  useEffect(() => {
-    if (anime.length < 1000) {
-      setTimeout(() => {
-        axios.get("https://api.jikan.moe/v4/anime?q=&sort=desc&order_by=score&page=" + (anime.length / 25 + 1))
-          .then(res => {
-            dispatch(addAnime(res.data.data));
-          })
-          .catch(error => {
-            alert(error)
-          });
-      }, 500);
-    }
-  }, [anime])
 
   const handleLogin = () => {
     axios.post(API_URI + "/accounts/login/", {username: username, password: password})
