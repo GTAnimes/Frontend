@@ -6,11 +6,8 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <Text> This is Main !!</Text>
       <View style={styles.box}>
-
-        
         <Link href="/SignUp"> Register </Link>
       </View>
-
     </View>
   );
 }
