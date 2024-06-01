@@ -19,5 +19,5 @@ export const selectFirstAiringAnime = (state: RootState) => {
             anime.push(check[i]);
         }
     }
-    return anime;
-}
+  return anime;
+};
