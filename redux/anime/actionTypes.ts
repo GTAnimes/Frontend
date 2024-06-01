@@ -1,3 +1,4 @@
+import { UnknownAction } from "redux";
 import { Anime } from "./animeReducer";
 export const SET_ANIME_LIST = 'SET_ANIME_LIST';
 export const ADD_ANIME = 'ADD_ANIME';
@@ -12,5 +13,5 @@ interface AddAnimeAction {
   payload: Anime[];
 }
 
-export type AnimeActionTypes = SetAnimeListAction | AddAnimeAction;
+export type AnimeActionTypes = SetAnimeListAction | AddAnimeAction | any;
 
