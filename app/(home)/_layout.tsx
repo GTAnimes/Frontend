@@ -30,7 +30,6 @@ export default function HomeLayout() {
       }, 500);
     }
   }, [anime])
-  console.log(anime);
 
   return (
     <Stack
@@ -42,11 +41,10 @@ export default function HomeLayout() {
         headerTitleStyle: {
           fontWeight: 'bold',
         },
-        headerShown: false
       }}>
       <Stack.Screen name="index" options={{headerShown: false}}/>
       <Stack.Screen name="SignUp" options={{headerTitle: "Register"}}/>
-      <Stack.Screen name="(main)"/>
+      <Stack.Screen name="(main)" options={{headerShown: false}}/>
     </Stack>
   );
 }
