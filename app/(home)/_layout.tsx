@@ -57,6 +57,7 @@ export default function HomeLayout() {
         headerTitleStyle: {
           fontWeight: "light",
         },
+
       }}
     >
       <Stack.Screen name="index" options={{ headerShown: false }} />
