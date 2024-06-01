@@ -4,11 +4,6 @@ import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 import axios from 'axios';
 import { API_URI } from "@/constants/API";
 
-interface LoginResponse {
-  success: boolean;
-  message?: string;
-}
-
 export default function HomeScreen() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -16,7 +11,7 @@ export default function HomeScreen() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post<LoginResponse>(`${API_URI}/accounts/login/`, {
+      const response = await axios.post(`${API_URI}/accounts/login/`, {
         username: username,
         password: password,
       });
