@@ -1,4 +1,5 @@
 import PlayButton from "@/components/buttons/PlayButton";
+import PlayButton2 from "@/components/buttons/PlayButton2";
 import { useRouter } from "expo-router";
 import { View, Text, StyleSheet } from "react-native";
 
@@ -16,7 +17,7 @@ export default function HomeScreen() {
         bgColor="#2D882D"
         pColor="#1D591D"
       />
-      {/* <PlayButton
+      <PlayButton2
         title="Guess By Character"
         description="Challenge yourself and top the leaderboard!"
         onPress={() => {
@@ -30,7 +31,7 @@ export default function HomeScreen() {
           });
         }}
         pText="1P"
-      /> */}
+      />
     </View>
   );
 }
