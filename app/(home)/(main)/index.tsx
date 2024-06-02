@@ -11,10 +11,10 @@ export default function HomeScreen() {
       <PlayButton
         title="SOLO"
         description="Challenge yourself and top the leaderboard!"
-        onPress={() => {
-          //Navigate to Set Difficulty Screen.
-        }}
         pText="1P"
+        link="/difficulty"
+        bgColor="#2D882D"
+        pColor="#1D591D"
       />
       <PlayButton
         title="Guess By Character"
@@ -36,14 +36,6 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  box: {
-    width: "90%",
-    height: "48%",
-    backgroundColor: "white",
-    justifyContent: "center",
-    alignItems: "center",
-    margin: "2%",
-  },
   container: {
     flex: 1,
     backgroundColor: "#002E72",
