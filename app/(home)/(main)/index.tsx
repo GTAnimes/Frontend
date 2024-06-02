@@ -16,7 +16,7 @@ export default function HomeScreen() {
         bgColor="#2D882D"
         pColor="#1D591D"
       />
-      <PlayButton
+      {/* <PlayButton
         title="Guess By Character"
         description="Challenge yourself and top the leaderboard!"
         onPress={() => {
@@ -30,7 +30,7 @@ export default function HomeScreen() {
           });
         }}
         pText="1P"
-      />
+      /> */}
     </View>
   );
 }
