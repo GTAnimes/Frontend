@@ -1,23 +1,18 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-interface PlayButtonProps {
-  pText: string;
+interface DifficultyButtonProps {
   title: string;
   description: string;
   onPress: () => void;
 }
 
-const PlayButton: React.FC<PlayButtonProps> = ({
+const PlayButton: React.FC<DifficultyButtonProps> = ({
   description,
   onPress,
-  pText,
   title,
 }) => {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
-      <View style={styles.leftSection}>
-        <Text style={styles.pointText}>{pText}</Text>
-      </View>
       <View style={styles.rightSection}>
         <Text style={styles.soloText}>{title}</Text>
         <Text style={styles.challengeText}>{description}</Text>
@@ -33,13 +28,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     overflow: "hidden",
     margin: 8,
-  },
-  leftSection: {
-    backgroundColor: "#1D591D", // Darker green for the left section
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    justifyContent: "center",
-    alignItems: "center",
   },
   rightSection: {
     paddingVertical: 10,

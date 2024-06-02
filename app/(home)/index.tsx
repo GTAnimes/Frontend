@@ -16,7 +16,8 @@ export default function HomeScreen() {
         password: password,
       });
 
-      if (response.data.success) {
+      if (response.data.message === 'User logged in successfully.') {
+        console.log("Success");
         router.push('/(main)');
       } else {
         Alert.alert('Login Failed', response.data.message || 'Invalid username or password');
@@ -24,22 +25,18 @@ export default function HomeScreen() {
     } catch (error) {
       if (axios.isAxiosError(error)) {
         if (error.response) {
-          // The request was made and the server responded with a status code outside the range of 2xx
           console.error('Response error:', error.response.data);
           console.error('Status:', error.response.status);
           console.error('Headers:', error.response.headers);
           Alert.alert('Login Error', error.response.data.message || 'Invalid username or password');
         } else if (error.request) {
-          // The request was made but no response was received
           console.error('Request error:', error.request);
           Alert.alert('Login Error', 'No response from the server. Please try again later.');
         } else {
-          // Something happened in setting up the request that triggered an Error
           console.error('Error:', error.message);
           Alert.alert('Login Error', 'An error occurred while setting up the request. Please try again later.');
         }
       } else {
-        // Handle any other type of error (non-Axios errors)
         console.error('Unexpected error:', error);
         Alert.alert('Login Error', 'An unexpected error occurred. Please try again later.');
       }
@@ -64,7 +61,8 @@ export default function HomeScreen() {
           secureTextEntry
         />
         <Button title="Login" onPress={handleLogin} />
-        <Link href="/SignUp" style={styles.link}>Register</Link>
+        <Link href="/(main)" style={styles.link} > Play As A Guest </Link>
+        <Link href="/SignUp" style={styles.link}> Register </Link>
       </View>
     </View>
   );
@@ -89,10 +87,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
     elevation: 5,
   },
   input: {

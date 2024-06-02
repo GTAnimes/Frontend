@@ -1,7 +1,7 @@
 import { Link } from 'expo-router';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function HomeScreen() {
+export default function leaderboardScreen() {
   return (
     <View style={styles.container}>
       <Text> This is Setting !!</Text>

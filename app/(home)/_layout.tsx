@@ -35,16 +35,19 @@ export default function HomeLayout() {
     <Stack
       screenOptions={{
         headerStyle: {
-          backgroundColor: '#f4511e',
+          backgroundColor: "#002E72",
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
           fontWeight: 'bold',
         },
-      }}>
+      }}
+      >
       <Stack.Screen name="index" options={{headerShown: false}}/>
       <Stack.Screen name="SignUp" options={{headerTitle: "Register"}}/>
       <Stack.Screen name="(main)" options={{headerShown: false}}/>
+      <Stack.Screen name="(mode)/guessByCharacter" options={{headerShown: false}}/>
+      <Stack.Screen name="(mode)/difficulty" options={{headerTitle: "Difficulty"}}/>
     </Stack>
   );
 }
