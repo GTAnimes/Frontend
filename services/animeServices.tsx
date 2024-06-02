@@ -35,3 +35,16 @@ export async function getRandomAnimePictures(Anime: Anime) {
     throw error; // Re-throw the error for the caller to handle
   }
 }
+
+export async function getRandomAnimeCharacters(Anime: Anime) {
+    const apiUrl = `https://api.jikan.moe/v4/anime/${Anime.mal_id}/characters`;
+    try {
+        const response = (await axios.get(apiUrl)).data.data;
+        const randomIndex = Math.floor(Math.random() * response.length);
+        return response[randomIndex].character.images.jpg.image_url;
+
+    } catch(error) {
+        console.log('Error fetching the data:', error);
+        throw error;
+    }
+}
