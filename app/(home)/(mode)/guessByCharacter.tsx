@@ -7,6 +7,7 @@ import {
   Text,
   TextInput,
   View,
+  ActivityIndicator,
 } from "react-native";
 import { selectAnime } from "@/redux/reducer";
 import { getRandomAnimeCharacters } from "@/services/animeServices";
@@ -56,10 +57,12 @@ export default function byCharacterScreen() {
   );
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
+      <Text style={styles.header}> You selected {diff} difficulty</Text>
+      {isLoading && (<ActivityIndicator/>)}
       {animeChar && (
-        <Image source={{ uri: animeChar }} style={styles.image} />
-      )}
+          <Image source={{ uri: animeChar }} style={styles.image} />
+        )}
       <TextInput
         style={styles.input}
         autoCapitalize="none"
@@ -75,17 +78,26 @@ export default function byCharacterScreen() {
         ItemSeparatorComponent={() => <View style={styles.separator} />}
         contentContainerStyle={styles.listContainer}
       />
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    backgroundColor: "#002E72",
     alignItems: "center",
   },
-  image: { width: "100%", height: 200 },
+  header: {
+    width: "100%",
+    backgroundColor:"white",
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  image: { 
+    width: "100%",
+    height: "60%",
+  },
   input: {
     borderColor: "#FFF",
     color: "white",
@@ -95,12 +107,14 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     marginHorizontal: 12,
     marginTop: 24,
+    width: "100%",
     backgroundColor: "#0462EF",
   },
   listContainer: {
     paddingHorizontal: 12,
     marginHorizontal: 12,
     backgroundColor: "white",
+    width: "100%",
   },
   separator: {
     height: 1,

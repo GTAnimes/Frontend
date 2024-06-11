@@ -76,7 +76,7 @@ export default function HomeLayout() {
         options={{ headerShown: false }}
       />
       <Stack.Screen name="(main)" options={{ headerShown: false }} />
-      <Stack.Screen name="(mode)/guessByCharacter" options={{headerShown: false}}/>
+      <Stack.Screen name="(mode)/guessByCharacter" options={{headerTitle: "GuessByCharacter"}}/>
       <Stack.Screen name="(mode)/difficulty" options={{headerTitle: "Difficulty"}}/>
     </Stack>
   );
