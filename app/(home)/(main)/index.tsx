@@ -1,5 +1,6 @@
 import PlayButton from "@/components/buttons/PlayButton";
 import PlayButton2 from "@/components/buttons/PlayButton2";
+import LineText from "@/components/buttons/LineText";
 import { useRouter } from "expo-router";
 import { View, Text, StyleSheet } from "react-native";
 
@@ -9,6 +10,7 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.gameSectionTitle}>Guess The Anime</Text>
+      <LineText text="Single Player" />
       <PlayButton
         title="SOLO"
         description="Challenge yourself and top the leaderboard!"
@@ -32,6 +34,7 @@ export default function HomeScreen() {
         }}
         pText="1P"
       />
+      <LineText text="Multi Player" />
     </View>
   );
 }

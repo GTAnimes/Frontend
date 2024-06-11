@@ -62,7 +62,7 @@ export default function HomeLayout() {
       <Stack.Screen name="index" options={{ headerShown: false }} />
       <Stack.Screen
         name="SignUp"
-        options={{ headerTitle: "Register", headerShown: false }}
+        options={{ headerTitle: "Register", headerShown: true}}
       />
       <Stack.Screen
         name="difficulty"

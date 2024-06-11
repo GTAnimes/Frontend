@@ -60,7 +60,9 @@ export default function HomeScreen() {
           onChangeText={setPassword}
           secureTextEntry
         />
-        <Button title="Login" onPress={handleLogin} />
+        <View style={styles.login}>
+          <Button title="Login" onPress={handleLogin} />
+        </View>
         <Link href="/(main)" style={styles.link} > Play As A Guest </Link>
         <Link href="/SignUp" style={styles.link}> Register </Link>
       </View>
@@ -69,17 +71,6 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f5f5f5',
-  },
-  welcomeText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
   box: {
     width: '80%',
     padding: 20,
@@ -88,6 +79,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
     elevation: 5,
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5f5f5',
   },
   input: {
     width: '100%',
@@ -101,5 +98,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#007bff',
     marginVertical: 10,
+  },
+  login: {
+    marginVertical: 10,
+  },
+  welcomeText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
   },
 });

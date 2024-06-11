@@ -4,27 +4,20 @@ import { View, Text, StyleSheet } from 'react-native';
 export default function leaderboardScreen() {
   return (
     <View style={styles.container}>
-      <Text> This is Setting !!</Text>
-      <View style={styles.box}>
-        <Link href="/SignUp"> Register </Link>
-      </View>
-
+      <Text style={styles.text}> This is Leaderboard !!</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  box: {
-    width: '90%',
-    height: "48%",
-    backgroundColor: "white", 
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: "2%",
-  },
   container: {
     flex: 1,
+    backgroundColor: "#002E72",
+    paddingHorizontal: 12,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  text: {
+    color: "white",
   },
 });

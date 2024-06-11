@@ -14,7 +14,7 @@ export default function DifficultyScreen() {
         </Text>
       </View>
       <DifficultyButton 
-        title="Level Easy"
+        title="Easy"
         description="You will be given a character and you need to guess it"
         onPress={() => {
           router.push({
@@ -26,7 +26,7 @@ export default function DifficultyScreen() {
         }}
       />
       <DifficultyButton 
-        title="Level Medium"
+        title="Medium"
         description="You will be given a character and you need to guess it"
         onPress={() => {
           router.push({
@@ -38,7 +38,7 @@ export default function DifficultyScreen() {
         }}
       />
       <DifficultyButton 
-        title="Level Hard"
+        title="Hard"
         description="You will be given a character and you need to guess it"
         onPress={() => {
           router.push({
