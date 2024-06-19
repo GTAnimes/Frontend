@@ -57,13 +57,12 @@ export default function HomeLayout() {
         headerTitleStyle: {
           fontWeight: "light",
         },
-
       }}
     >
       <Stack.Screen name="index" options={{ headerShown: false }} />
       <Stack.Screen
         name="SignUp"
-        options={{ headerTitle: "Register", headerShown: false }}
+        options={{ headerTitle: "Register", headerShown: true}}
       />
       <Stack.Screen
         name="difficulty"
@@ -77,6 +76,8 @@ export default function HomeLayout() {
         options={{ headerShown: false }}
       />
       <Stack.Screen name="(main)" options={{ headerShown: false }} />
+      <Stack.Screen name="(mode)/guessByCharacter" options={{headerTitle: "GuessByCharacter"}}/>
+      <Stack.Screen name="(mode)/difficulty" options={{headerTitle: "Difficulty"}}/>
     </Stack>
   );
 }

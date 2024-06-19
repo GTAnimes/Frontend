@@ -1,10 +1,10 @@
 import { Link } from 'expo-router';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function leaderboardScreen() {
+export default function stastScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}> This is Leaderboard !!</Text>
+      <Text style={styles.text}> This is stats !!</Text>
     </View>
   );
 }

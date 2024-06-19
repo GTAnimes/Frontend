@@ -1,61 +1,55 @@
-import { Link } from "expo-router";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 interface PlayButtonProps {
   pText: string;
   title: string;
   description: string;
-  link: string;
-  pColor: string;
-  bgColor: string;
+  onPress: () => void;
 }
-
 
 const PlayButton: React.FC<PlayButtonProps> = ({
   description,
+  onPress,
   pText,
-  link,
   title,
-  bgColor,
-  pColor,
 }) => {
   return (
-    <Link href={link} style={[styles.button, { backgroundColor: bgColor }]}>
-      <View style={[styles.container]}>
-        <View style={[styles.leftSection, { backgroundColor: pColor }]}>
-          <Text style={styles.pointText}>{pText}</Text>
-        </View>
-        <View style={styles.rightSection}>
-          <Text style={styles.soloText}>{title}</Text>
-          <Text style={styles.challengeText}>{description}</Text>
-        </View>
+    <TouchableOpacity style={styles.button} onPress={onPress}>
+      <View style={styles.leftSection}>
+        <Text style={styles.pointText}>{pText}</Text>
       </View>
-    </Link>
+      <View style={styles.rightSection}>
+        <Text style={styles.soloText}>{title}</Text>
+        <Text style={styles.challengeText}>{description}</Text>
+      </View>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   button: {
+    flexDirection: "row",
+    backgroundColor: "#2D882D", // Green background
     borderRadius: 10,
+    overflow: "hidden",
+    marginHorizontal: 2,
+    marginVertical: 10,
     height: "auto",
   },
-  container: {
-    flexDirection: "row",
-    overflow: "hidden",
-    margin: 8,
-  },
   leftSection: {
-    width: 60,
+    backgroundColor: "#1D591D", // Darker green for the left section
     borderTopLeftRadius: 10,
     borderBottomLeftRadius: 10,
     paddingVertical: 10,
     paddingHorizontal: 10,
     justifyContent: "center",
     alignItems: "center",
+    width: 59,
   },
   rightSection: {
+    paddingVertical: 10,
+    paddingHorizontal: 15,
     justifyContent: "center",
-    paddingLeft: 10,
   },
   pointText: {
     color: "#FFFFFF", // White text

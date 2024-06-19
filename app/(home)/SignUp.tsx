@@ -12,12 +12,14 @@ interface RegisterResponse {
 export default function SignUpScreen() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
   const router = useRouter();
 
   const handleRegister = async () => {
     try {
       const response = await axios.post<RegisterResponse>(`${API_URI}/accounts/signup/`, {
         username: username,
+        email: email,
         password: password,
       });
 
@@ -68,6 +70,12 @@ export default function SignUpScreen() {
           onChangeText={setPassword}
           secureTextEntry
         />
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          value={email}
+          onChangeText={setEmail}
+        />
         <Button title="Register" onPress={handleRegister} />
       </View>
     </View>
@@ -93,10 +101,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
     elevation: 5,
   },
   input: {
