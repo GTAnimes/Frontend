@@ -1,10 +1,12 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import { useRouter } from "expo-router";
 import { Link } from 'expo-router';
 import ProfileButton from "@/components/buttons/ProfileButton";
 import { MaterialCommunityIcons, Ionicons, FontAwesome5, MaterialIcons, SimpleLineIcons } from '@expo/vector-icons';
 
 export default function ProfileScreen() {
+  const router = useRouter();
   return (
     <View style={styles.container}>
       <ProfileButton
@@ -12,21 +14,27 @@ export default function ProfileScreen() {
         iconComponent={MaterialCommunityIcons}
         iconSize={36}
         title="Account details"
-        onPress={() => alert("pressed")}
+        onPress={() =>router.push({
+          pathname: "../(profile)/details",
+        })}
       />
       <ProfileButton
         iconName="stats-chart"
         iconComponent={Ionicons}
         iconSize={32}
         title="Stats"
-        onPress={() => alert("pressed")}
+        onPress={() =>router.push({
+          pathname: "../(profile)/stats",
+        })}
       />
       <ProfileButton
         iconName="user-friends"
         iconComponent={FontAwesome5}
         iconSize={24}
         title="Friends"
-        onPress={() => alert("pressed")}
+        onPress={() =>router.push({
+          pathname: "../(profile)/friends",
+        })}
       />
       <ProfileButton
         iconName="report-problem"
