@@ -17,11 +17,10 @@ const ScoreModal: React.FC<ScoreModalProps> = ({ visible, score, onClose }) => {
     >
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
-          <Text style={styles.modalText}>Congratulations!</Text>
           <Text style={styles.modalText}>Time Is Up !!!</Text>
           <Text style={styles.modalText}> Your Final Score is: <Text style={styles.scoreText}>{score.toString()}</Text></Text>
           <TouchableOpacity style={styles.closeButton} onPress={onClose}>
-            <Text style={styles.closeButtonText}>Close</Text>
+            <Text style={styles.closeButtonText}> Return To Home </Text>
           </TouchableOpacity>
         </View>
       </View>

@@ -35,6 +35,7 @@ export default function byCharacterScreen() {
 
   const closeModal = () => {
     setShowModal(false);
+    router.push("../(main)");
   };
 
   async function fetchPicture() {
