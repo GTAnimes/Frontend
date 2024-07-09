@@ -35,6 +35,21 @@ export default function HomeScreen() {
         pText="1P"
       />
       <LineText text="Multi Player" />
+      <PlayButton2
+        title="Guess By Character"
+        description="Challenge yourself and top the leaderboard!"
+        onPress={() => {
+          //Navigate to Set Difficulty Screen.
+          router.push({
+            pathname: "../(mode)/difficulty",
+            params: {
+              type: "Character",
+              desc: "In this section, you will be given a character and you need to guess the anime name correctly."
+            },
+          });
+        }}
+        pText="1P"
+      />
     </View>
   );
 }
