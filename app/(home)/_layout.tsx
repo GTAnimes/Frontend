@@ -78,6 +78,9 @@ export default function HomeLayout() {
       <Stack.Screen name="(main)" options={{ headerShown: false }} />
       <Stack.Screen name="(mode)/guessByCharacter" options={{headerTitle: "GuessByCharacter"}}/>
       <Stack.Screen name="(mode)/difficulty" options={{headerTitle: "Difficulty"}}/>
+      <Stack.Screen name="(profile)/stats" options={{headerTitle: "Statistic"}}/>
+      <Stack.Screen name="(profile)/details" options={{headerTitle: "Details"}}/>
+      <Stack.Screen name="(profile)/friends" options={{headerTitle: "Friends"}}/>
     </Stack>
   );
 }
